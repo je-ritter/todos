@@ -45,10 +45,14 @@ body {
   color: #bfbfbfbf;
 }
 
-.controls{
+.controls, li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+}
+
+.controls{
   padding: 18px 25px;
   border-bottom: 1px solid #ccc;
 }
@@ -84,4 +88,70 @@ body {
 
 .task-box .task {
   list-style: none;
+  font-size: 17px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.task-box .task:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.task label {
+  display: flex;
+}
+
+.task label p.checked {
+  text-decoration: line-through;
+}
+
+.task label input {
+  margin-top: 6px;
+  margin-right: 12px; 
+}
+
+.task .settings {
+  cursor: pointer;
+  position: relative;
+}
+
+.settings .task-menu {
+  position: absolute;
+  padding: 5px 0;
+  right: -5px;
+  bottom: -60px;
+  z-index: 2;
+  transform: scale(0);
+  border-radius: 5px;
+  background: white;
+  transform-origin: top right;
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.settings:hover .task-menu {
+  transform: scale(1);
+}
+
+.task-menu li {
+  height: 25px;
+  font-size: 16pt;
+  padding: 17px 15px;
+  margin-bottom: 2px;
+  justify-content: flex-start;
+}
+
+.task-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.task-menu li:hover {
+  background: #f5f5f5;
+}
+
+.task-menu li iconify-icon {
+  padding-right: 8px;
 }
