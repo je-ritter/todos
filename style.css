@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: cyan;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 135px auto;
+  max-width: 405px;
+  background: white;
+  border-radius: 4px;
+  padding: 28px 0;
+}
+
+.task-input {
+  height: 52px;
+  padding: 0 25px;
+  position: relative;
+}
+
+.task-input img {
+  position: absolute;
+  top: 50%;
+  transform: translate(17px, -50%);
+}
+
+.task-input input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  padding: 0 20px 0 53px;
+}
+
+.task-input input::placeholder {
+  color: #bfbfbfbf;
+}
+
+.controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.filters span{
+  cursor: pointer;
+  margin: 0 8px;
+  font-size: 17px;
+}
+
+.filters span:first-child {
+  margin-left: 0;
+}
+
+.filters span.active {
+  color: blue;
+}
+
+.controls .clear-btn {
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 7px 13px;
+  background: black;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.task-box {
+  margin: 20px 25px;
+}
+
+.task-box .task {
+  list-style: none;
+}
