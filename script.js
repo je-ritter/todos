@@ -7,14 +7,15 @@ let todos = JSON.parse(localStorage.getItem("todo-list"));
 function showTodo() {
   let li = "";
   todos.forEach((todo, id) => {
+    let isCompleted = todo.status == "completed" ? "checked" : "";
     li += `
       <li class="task">
         <label for="${id}">
-          <input onclick="updateStatus(this)" type="checkbox" id="${id}">
-          <p>${todo.name}</p>
+          <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+          <p class="${isCompleted}">${todo.name}</p>
         </label>
         <div class="settings">
-          <iconify-icon icon="ant-design:ellipsis-outlined"></iconify-icon>
+          <iconify-icon onclick="showMenu(this)" icon="ant-design:ellipsis-outlined"></iconify-icon>
           <ul class="task-menu">
             <li><iconify-icon icon="fluent-mdl2:pen-workspace"></iconify-icon>Edit</li>
             <li><iconify-icon icon="gg:trash"></iconify-icon>Delete</li>
@@ -26,6 +27,18 @@ function showTodo() {
   taskBox.innerHTML = li;
 }
 showTodo();
+
+function showMenu(selectedTask) {
+  // getting task menu div
+  console.log('Clicked');
+  let taskMenu = selectedTask.parentElement.lastElementChild;
+  taskMenu.classList.add("show");
+  document.addEventListener("click", e => {
+    if(e.target.tagName != "I" || e.target != selectedTask) {
+      taskMenu.classList.remove("show");
+    }
+  })
+}
 
 function updateStatus(selectedTask) {
   // getting paragraph that contains task name
